@@ -10,7 +10,7 @@
 
 namespace accumulate
 {
-    const inline auto Numbers = generateVector(1'000);
+    const inline auto Numbers = generateVector(10'000'000);
     const inline auto ChunkedNumbers = []() {
         auto chunks = std::vector<std::vector<std::span<const int>>>{};
 
