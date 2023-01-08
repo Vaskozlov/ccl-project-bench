@@ -19,5 +19,5 @@ namespace accumulate
         }
     }
 
-    BENCHMARK(basicAccumulate)->DenseThreadRange(1, ThreadLimit)->UseRealTime();
+    BENCHMARK(basicAccumulate)->UseRealTime();
 }// namespace accumulate
