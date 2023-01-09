@@ -8,7 +8,7 @@ namespace function
         for (auto _ : state) {
             for (int a = 0; a < 9000; ++a) {
                 for (int b = 0; b < 9000; ++b) {
-                    benchmark::DoNotOptimize(noinlineAPlusBPow2(a, b));
+                    benchmark::DoNotOptimize(testNoinlineFunction(a, b));
                 }
             }
         }
@@ -21,7 +21,7 @@ namespace function
         for (auto _ : state) {
             for (int a = 0; a < 9000; ++a) {
                 for (int b = 0; b < 9000; ++b) {
-                    benchmark::DoNotOptimize(inlinedAPlusBPow2(a, b));
+                    benchmark::DoNotOptimize(testInlineFunction(a, b));
                 }
             }
         }

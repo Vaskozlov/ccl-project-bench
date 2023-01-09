@@ -8,7 +8,7 @@ namespace function
 {
     auto Vector = std::vector<size_t>{};
 
-    auto noinlineAPlusBPow2(int a, int b) -> int
+    auto testNoinlineFunction(int a, int b) -> int
     {
         return (a + b) * (a + b);
     }
