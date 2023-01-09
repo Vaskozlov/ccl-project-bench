@@ -3,7 +3,9 @@
 
 #include "../chunk.hpp"
 #include "../random_vector.hpp"
+#include <cassert>
 #include <mutex>
+#include <numeric>
 #include <span>
 #include <thread>
 #include <vector>
@@ -16,6 +18,13 @@ namespace accumulate
 
         for (size_t i = 1; i != std::thread::hardware_concurrency() + 1; ++i) {
             chunks.emplace_back(chunk(Numbers, i));
+
+            assert(
+                Numbers.size() == std::accumulate(
+                                      chunks.back().begin(), chunks.back().end(),
+                                      static_cast<size_t>(0), [](auto lhs, auto rhs) {
+                                          return lhs + rhs.size();
+                                      }));
         }
 
         return chunks;
